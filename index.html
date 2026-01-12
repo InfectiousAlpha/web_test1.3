@@ -334,7 +334,7 @@
                 <div class="space-y-8">
                     <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
                         <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
-                        <img src="gram_result.png" alt="Stereophotogrammetry Point Cloud Result" class="w-full h-auto object-cover">
+                        <img src="gram_result.png" alt="Stereophotogrammetry Point Cloud Result" class="w-full h-96 md:h-[500px] object-cover">
                         <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
                             <span class="text-white font-medium">Dense Point Cloud Generation</span>
                         </div>
@@ -346,7 +346,7 @@
 
                     <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
                         <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
-                        <img src="gram_contour.png" alt="Contour Map Analysis" class="w-full h-auto object-cover">
+                        <img src="gram_contour.png" alt="Contour Map Analysis" class="w-full h-96 md:h-[500px] object-cover">
                         <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
                             <span class="text-white font-medium">Contour Map Analysis</span>
                         </div>
@@ -380,7 +380,7 @@
                 </p>
                 <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
                     <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
-                    <img src="meshroom_result.png" alt="Meshroom Contour Result" class="w-full h-auto object-cover">
+                    <img src="meshroom_result.png" alt="Meshroom Contour Result" class="w-full h-96 md:h-[500px] object-cover">
                     <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
                         <span class="text-white font-medium">Photogrammetry Contour Map</span>
                     </div>
@@ -400,23 +400,24 @@
                     In this experimental phase, the reconstructed surface model is subjected to physical testing. The process involves wetting the surface and capturing a timelapse of the drying process until completely dry. These images are processed into binary maps to isolate water coverage, allowing for the generation of contour maps that represent water height and retention patterns over time.
                 </p>
                 
-                <!-- Comparison and GIF -->
+                <!-- Process Visualization Header -->
                 <h4 class="text-white font-semibold mb-4 text-lg">Process Visualization</h4>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
-                         <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
-                        <img src="surface_comparison.png" alt="Wet Surface vs Binary Comparison" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
-                            <span class="text-white font-medium">Wet Surface vs. Binary Mask</span>
-                        </div>
+                
+                <!-- Surface Comparison Image (Alone) -->
+                <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20 mb-8">
+                     <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
+                    <img src="surface_comparison.png" alt="Wet Surface vs Binary Comparison" class="w-full h-96 md:h-[500px] object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
+                        <span class="text-white font-medium">Wet Surface vs. Binary Mask</span>
                     </div>
-                    
-                    <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
-                         <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
-                        <img src="binary.gif" alt="Drying Process Timelapse" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
-                            <span class="text-white font-medium">Drying Process (Binary Timelapse)</span>
-                        </div>
+                </div>
+                
+                <!-- Binary GIF (Below) -->
+                <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20 mb-8">
+                     <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
+                    <img src="binary.gif" alt="Drying Process Timelapse" class="w-full h-96 md:h-[500px] object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
+                        <span class="text-white font-medium">Drying Process (Binary Timelapse)</span>
                     </div>
                 </div>
 
