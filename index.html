@@ -32,6 +32,39 @@
         }
         }
     </script>
+    <style>
+        /* Simulation Specific Styles */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #22c55e;
+            cursor: pointer;
+            margin-top: -6px;
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+        }
+        
+        .sim-container canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body class="antialiased relative selection:bg-green-500/30 selection:text-green-200">
 
@@ -402,7 +435,7 @@
 
                 <!-- Comparison and GIF -->
                 <h4 class="text-white font-semibold mb-4 text-lg">Process Visualization</h4>
-                
+
                 <!-- Image 1: Alone -->
                 <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20 mb-8">
                     <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
@@ -432,6 +465,110 @@
                     <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
                         <span class="text-white font-medium">Temporal Stack Water Contour Map</span>
                     </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Friction Simulation (NEW) -->
+            <div class="glass-panel p-8 rounded-2xl reveal border-l-4 border-l-purple-500 mt-12">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-4 mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">Interactive Friction Simulation</h3>
+                        <p class="text-purple-400 text-sm font-mono mt-1">Physics Engine • HTML5 Canvas • JavaScript</p>
+                    </div>
+                </div>
+                
+                <p class="text-slate-400 mb-8 leading-relaxed max-w-4xl">
+                    A real-time physics simulation demonstrating the relationship between static and kinetic friction on an inclined plane. Adjust mass, gravity, friction coefficients, and applied force to observe the resulting motion vectors and net forces dynamically.
+                </p>
+
+                <!-- Embedded Simulation -->
+                <div class="relative w-full h-[650px] md:h-[600px] bg-slate-900/50 rounded-xl overflow-hidden flex flex-col md:flex-row border border-white/10">
+                    
+                    <!-- Controls Sidebar -->
+                    <div class="w-full md:w-80 p-6 flex flex-col gap-4 bg-slate-900/80 border-b md:border-b-0 md:border-r border-white/10 overflow-y-auto shrink-0 z-10 backdrop-blur-sm">
+                        <h2 class="text-lg font-bold text-green-400 mb-2 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            Parameters
+                        </h2>
+
+                        <!-- Gravity -->
+                        <div class="control-group">
+                            <div class="flex justify-between text-sm mb-1 text-slate-300">
+                                <label>Gravity (g)</label>
+                                <span id="val-g">9.8 m/s²</span>
+                            </div>
+                            <input type="range" id="slider-g" min="1" max="25" step="0.1" value="9.8">
+                        </div>
+
+                        <!-- Mass -->
+                        <div class="control-group">
+                            <div class="flex justify-between text-sm mb-1 text-slate-300">
+                                <label>Mass (m)</label>
+                                <span id="val-m">5.0 kg</span>
+                            </div>
+                            <input type="range" id="slider-m" min="1" max="50" step="0.5" value="5.0">
+                        </div>
+
+                        <!-- Static Friction -->
+                        <div class="control-group">
+                            <div class="flex justify-between text-sm mb-1 text-slate-300">
+                                <label>Static Friction (μs)</label>
+                                <span id="val-mus">0.50</span>
+                            </div>
+                            <input type="range" id="slider-mus" min="0" max="1" step="0.01" value="0.5">
+                        </div>
+
+                        <!-- Kinetic Friction -->
+                        <div class="control-group">
+                            <div class="flex justify-between text-sm mb-1 text-slate-300">
+                                <label>Kinetic Friction (μk)</label>
+                                <span id="val-muk">0.30</span>
+                            </div>
+                            <input type="range" id="slider-muk" min="0" max="1" step="0.01" value="0.3">
+                        </div>
+
+                        <!-- Angle -->
+                        <div class="control-group">
+                            <div class="flex justify-between text-sm mb-1 text-slate-300">
+                                <label>Angle (θ)</label>
+                                <span id="val-theta">15.0°</span>
+                            </div>
+                            <input type="range" id="slider-theta" min="0" max="80" step="0.5" value="15.0">
+                        </div>
+
+                        <!-- Force -->
+                        <div class="control-group">
+                            <div class="flex justify-between text-sm mb-1 text-slate-300">
+                                <label>Applied Force (F)</label>
+                                <span id="val-force">0.0 N</span>
+                            </div>
+                            <input type="range" id="slider-force" min="-100" max="100" step="1" value="0.0">
+                        </div>
+
+                        <button id="btn-reset" class="mt-4 py-2 px-4 bg-red-500/80 hover:bg-red-500 text-white rounded font-bold transition-colors">
+                            Reset Motion
+                        </button>
+                    </div>
+
+                    <!-- Simulation Canvas Container -->
+                    <div class="flex-grow relative h-full w-full sim-container bg-slate-800/20" id="canvas-container">
+                        <!-- Stats Overlay -->
+                        <div class="absolute top-4 right-4 p-4 bg-slate-900/80 rounded-lg text-xs font-mono border border-slate-700 pointer-events-none z-10 backdrop-blur-sm shadow-xl">
+                            <div class="flex justify-between text-emerald-400 font-bold mb-2 border-b border-slate-600 pb-1 gap-4">
+                                <span>Velocity</span>
+                                <span id="stat-vel">0.00 m/s</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-4 gap-y-1 text-slate-400">
+                                <span>Weight (mg):</span> <span id="stat-fg" class="text-right text-slate-200">0.0</span>
+                                <span>Normal (N):</span> <span id="stat-n" class="text-right text-slate-200">0.0</span>
+                                <span>Friction (f):</span> <span id="stat-f" class="text-right text-orange-400">0.0</span>
+                                <span>Applied (F):</span> <span id="stat-app" class="text-right text-blue-400">0.0</span>
+                                <span class="font-bold text-white pt-1">Net Force:</span> <span id="stat-net" class="text-right text-white font-bold pt-1">0.0</span>
+                            </div>
+                        </div>
+                        <canvas id="sim-canvas"></canvas>
+                    </div>
+
                 </div>
             </div>
 
@@ -494,5 +631,278 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        (function() {
+            // --- Simulation Constants ---
+            const CANVAS_BG = 'rgba(0,0,0,0)'; 
+            const PIXELS_PER_METER = 40;
+
+            // --- State ---
+            let params = {
+            g: 9.8,
+            m: 5.0,
+            mu_s: 0.5,
+            mu_k: 0.3,
+            theta: 15.0,
+            force_app: 0.0
+            };
+
+            let state = {
+            pos: 0.0,
+            vel: 0.0,
+            lastTime: 0
+            };
+
+            let forces = {
+            N: 0, W: 0, F_net: 0, F_fric: 0, F_app: 0, F_drive: 0
+            };
+
+            // --- DOM Elements ---
+            const canvas = document.getElementById('sim-canvas');
+            const ctx = canvas.getContext('2d');
+            const sliders = {
+            g: document.getElementById('slider-g'),
+            m: document.getElementById('slider-m'),
+            mus: document.getElementById('slider-mus'),
+            muk: document.getElementById('slider-muk'),
+            theta: document.getElementById('slider-theta'),
+            force: document.getElementById('slider-force')
+            };
+            const displays = {
+            g: document.getElementById('val-g'),
+            m: document.getElementById('val-m'),
+            mus: document.getElementById('val-mus'),
+            muk: document.getElementById('val-muk'),
+            theta: document.getElementById('val-theta'),
+            force: document.getElementById('val-force'),
+            vel: document.getElementById('stat-vel'),
+            fg: document.getElementById('stat-fg'),
+            n: document.getElementById('stat-n'),
+            f: document.getElementById('stat-f'),
+            app: document.getElementById('stat-app'),
+            net: document.getElementById('stat-net')
+            };
+
+            // --- Resize Handler ---
+            function resize() {
+                // Use the parent's width/height to size the canvas
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = canvas.parentElement.clientHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize(); // Initial call
+
+            // --- Input Listeners ---
+            function updateParams() {
+            params.g = parseFloat(sliders.g.value);
+            params.m = parseFloat(sliders.m.value);
+            params.mu_s = parseFloat(sliders.mus.value);
+            params.mu_k = parseFloat(sliders.muk.value);
+            params.theta = parseFloat(sliders.theta.value);
+            params.force_app = parseFloat(sliders.force.value);
+
+            // Update Labels
+            displays.g.textContent = params.g.toFixed(1) + " m/s²";
+            displays.m.textContent = params.m.toFixed(1) + " kg";
+            displays.mus.textContent = params.mu_s.toFixed(2);
+            displays.muk.textContent = params.mu_k.toFixed(2);
+            displays.theta.textContent = params.theta.toFixed(1) + "°";
+            displays.force.textContent = params.force_app.toFixed(1) + " N";
+            }
+
+            Object.values(sliders).forEach(s => s.addEventListener('input', updateParams));
+
+            document.getElementById('btn-reset').addEventListener('click', () => {
+            state.pos = 0;
+            state.vel = 0;
+            });
+
+            // --- Physics Logic ---
+            function updatePhysics(dt) {
+            const rad = params.theta * Math.PI / 180;
+
+            const fg = params.m * params.g;
+            const fg_parallel = fg * Math.sin(rad);
+            const fg_normal = fg * Math.cos(rad);
+
+            const driving_force = fg_parallel + params.force_app;
+            const f_static_max = params.mu_s * fg_normal;
+            const f_kinetic_mag = params.mu_k * fg_normal;
+
+            let force_net = 0;
+            let friction_force = 0;
+
+            // Case A: Stationary
+            if (Math.abs(state.vel) < 0.01) {
+            state.vel = 0;
+            if (Math.abs(driving_force) > f_static_max) {
+            const direction = Math.sign(driving_force);
+            friction_force = -direction * f_kinetic_mag;
+            force_net = driving_force + friction_force;
+            } else {
+            friction_force = -driving_force;
+            force_net = 0;
+            }
+            }
+            // Case B: Moving
+            else {
+            const direction = Math.sign(state.vel);
+            friction_force = -direction * f_kinetic_mag;
+            force_net = driving_force + friction_force;
+
+            // Stop condition check
+            const accel_check = force_net / params.m;
+            if (Math.abs(state.vel) < 0.1 && Math.sign(state.vel + accel_check * dt) !== direction) {
+            state.vel = 0;
+            force_net = 0;
+            }
+            }
+
+            const accel = force_net / params.m;
+            state.vel += accel * dt;
+            state.pos += state.vel * dt;
+
+            // Store for display
+            forces.N = fg_normal;
+            forces.W = fg;
+            forces.F_net = force_net;
+            forces.F_fric = friction_force;
+            forces.F_app = params.force_app;
+            }
+
+            // --- Drawing Helpers ---
+            function drawArrow(ctx, startX, startY, endX, endY, color, label) {
+            if (Math.abs(startX - endX) < 1 && Math.abs(startY - endY) < 1) return;
+
+            ctx.strokeStyle = color;
+            ctx.fillStyle = color;
+            ctx.lineWidth = 3;
+
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(endX, endY);
+            ctx.stroke();
+
+            // Arrow head
+            const angle = Math.atan2(endY - startY, endX - startX);
+            const headLen = 10;
+            ctx.beginPath();
+            ctx.moveTo(endX, endY);
+            ctx.lineTo(endX - headLen * Math.cos(angle - Math.PI/6), endY - headLen * Math.sin(angle - Math.PI/6));
+            ctx.lineTo(endX - headLen * Math.cos(angle + Math.PI/6), endY - headLen * Math.sin(angle + Math.PI/6));
+            ctx.fill();
+
+            // Label
+            if(label) {
+            ctx.font = "bold 14px Consolas";
+            ctx.fillStyle = color;
+            ctx.fillText(label, endX + 10, endY + 10);
+            }
+            }
+
+            // --- Main Loop ---
+            function loop(timestamp) {
+            if (!state.lastTime) state.lastTime = timestamp;
+            const dt = Math.min((timestamp - state.lastTime) / 1000, 0.05); // Cap dt
+            state.lastTime = timestamp;
+
+            updatePhysics(dt);
+
+            // Update Stats UI
+            displays.vel.textContent = state.vel.toFixed(2) + " m/s";
+            displays.fg.textContent = forces.W.toFixed(1);
+            displays.n.textContent = forces.N.toFixed(1);
+            displays.f.textContent = forces.F_fric.toFixed(1);
+            displays.app.textContent = forces.F_app.toFixed(1);
+            displays.net.textContent = forces.F_net.toFixed(1);
+
+            // Draw
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const cx = canvas.width / 2;
+            const cy = canvas.height / 2 + 100;
+            const rad = params.theta * Math.PI / 180;
+
+            ctx.save();
+            ctx.translate(cx, cy);
+
+            // 1. Draw Ground (Rotated)
+            ctx.save();
+            ctx.rotate(-rad);
+
+            // Draw ground block
+            ctx.fillStyle = "#3f3f46"; // slate-700
+            ctx.fillRect(-1000, 0, 2000, 400); // Earth
+
+            // Draw grass/surface line
+            ctx.fillStyle = "#22c55e"; // green-500
+            ctx.fillRect(-1000, 0, 2000, 6);
+
+            // Ticks on ground to show movement
+            ctx.strokeStyle = "rgba(255,255,255,0.3)";
+            ctx.lineWidth = 2;
+            const spacing = 100;
+            const offset = (state.pos * PIXELS_PER_METER) % spacing;
+
+            for(let i = -10; i < 10; i++) {
+            let x = i * spacing - offset;
+            if(x > -cx - 500 && x < cx + 500) {
+            ctx.beginPath();
+            ctx.moveTo(x, 6);
+            ctx.lineTo(x - 10, 26);
+            ctx.stroke();
+            }
+            }
+
+            // 2. Draw Block
+            const blockW = 80;
+            const blockH = 50;
+            ctx.translate(0, -blockH);
+
+            ctx.fillStyle = "#3b82f6"; // blue-500
+            ctx.strokeStyle = "white";
+            ctx.lineWidth = 2;
+
+            ctx.beginPath();
+            ctx.roundRect(-blockW/2, 0, blockW, blockH, 4);
+            ctx.fill();
+            ctx.stroke();
+
+            // Center dot
+            ctx.fillStyle = "white";
+            ctx.beginPath();
+            ctx.arc(0, blockH/2, 3, 0, Math.PI*2);
+            ctx.fill();
+
+            // 3. Draw Vectors
+            ctx.translate(0, blockH/2);
+
+            const scale = 3.0; // Pixels per Newton
+
+            // Normal Force
+            drawArrow(ctx, 0, 0, 0, -forces.N * scale, "#ffffff", "N");
+
+            // Friction (Parallel)
+            drawArrow(ctx, 0, 0, forces.F_fric * scale, 0, "#fb923c", "f"); // Orange
+
+            // Applied Force
+            drawArrow(ctx, 0, -10, forces.F_app * scale, -10, "#60a5fa", "F_app"); // Blue
+
+            // Weight Components
+            const W_par = forces.W * Math.sin(rad);
+            const W_norm = forces.W * Math.cos(rad);
+            drawArrow(ctx, 0, 0, W_par * scale, W_norm * scale, "#d8b4fe", "mg"); // Purple
+
+            ctx.restore(); // Pop block rotation
+            ctx.restore(); // Pop global translation
+
+            requestAnimationFrame(loop);
+            }
+
+            // Start
+            updateParams();
+            requestAnimationFrame(loop);
+        })();
+    </script>
 </body>
 </html>
