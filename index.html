@@ -722,7 +722,8 @@
             const rad = params.theta * Math.PI / 180;
 
             const fg = params.m * params.g;
-            const fg_parallel = fg * Math.sin(rad);
+            // Negative sine because gravity pulls DOWNHILL (negative X in our rotated frame)
+            const fg_parallel = fg * Math.sin(-rad); 
             const fg_normal = fg * Math.cos(rad);
 
             const driving_force = fg_parallel + params.force_app;
@@ -889,7 +890,8 @@
             drawArrow(ctx, 0, -10, forces.F_app * scale, -10, "#60a5fa", "F_app"); // Blue
 
             // Weight Components
-            const W_par = forces.W * Math.sin(rad);
+            // Corrected component direction for visual consistency
+            const W_par = forces.W * Math.sin(-rad); 
             const W_norm = forces.W * Math.cos(rad);
             drawArrow(ctx, 0, 0, W_par * scale, W_norm * scale, "#d8b4fe", "mg"); // Purple
 
