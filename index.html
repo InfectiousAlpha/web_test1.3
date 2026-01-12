@@ -7,29 +7,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
+
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: {
-                        glass: 'rgba(255, 255, 255, 0.05)',
-                        glassBorder: 'rgba(255, 255, 255, 0.1)',
-                        accent: '#22c55e',
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'float-delayed': 'float 6s ease-in-out 3s infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
-                    }
-                }
-            }
+        theme: {
+        extend: {
+        fontFamily: { sans: ['Inter', 'sans-serif'] },
+        colors: {
+        glass: 'rgba(255, 255, 255, 0.05)',
+        glassBorder: 'rgba(255, 255, 255, 0.1)',
+        accent: '#22c55e',
+        },
+        animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'float-delayed': 'float 6s ease-in-out 3s infinite',
+        },
+        keyframes: {
+        float: {
+        '0%, 100%': { transform: 'translateY(0)' },
+        '50%': { transform: 'translateY(-20px)' },
+        }
+        }
+        }
+        }
         }
     </script>
 </head>
@@ -47,7 +47,7 @@
                 </div>
                 <span class="font-bold text-xl tracking-tight text-white">Ismail Nur Maghribi</span>
             </div>
-            
+
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
                 <a href="#about" class="hover:text-white transition-colors">About</a>
                 <a href="#skills" class="hover:text-white transition-colors">Skills</a>
@@ -87,8 +87,8 @@
         <div class="text-center max-w-4xl mx-auto z-10 reveal active">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-green-300 text-sm mb-8 hover:bg-white/10 transition-colors cursor-default">
                 <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
                 Based in Surabaya, Indonesia
             </div>
@@ -108,7 +108,7 @@
                     <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </a>
             </div>
-            
+
             <!-- Tech Stack Icons -->
             <div class="mt-16 flex flex-wrap items-center justify-center gap-8 text-slate-500 grayscale opacity-70">
                 <div class="flex items-center gap-2 hover:grayscale-0 transition-all duration-300 hover:text-blue-400">
@@ -185,11 +185,11 @@
     <!-- Experience & Education Section -->
     <section id="experience" class="py-24 px-6 relative bg-slate-900/50">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-            
+
             <!-- Left Column: Work Experience -->
             <div class="reveal">
                 <h2 class="text-3xl md:text-5xl font-bold mb-8">Professional <br><span class="text-green-400">Journey</span></h2>
-                
+
                 <div class="relative pl-8 space-y-12">
                     <div class="timeline-line"></div>
 
@@ -281,7 +281,7 @@
                     </div>
 
                 </div>
-                
+
                 <!-- Decorative Elements behind -->
                 <div class="absolute top-1/2 right-10 w-40 h-40 bg-emerald-500/20 rounded-full blur-[60px] -z-10 pointer-events-none"></div>
             </div>
@@ -291,7 +291,7 @@
     <!-- Projects Section -->
     <section id="projects" class="py-24 px-6 relative">
         <div class="max-w-7xl mx-auto">
-             <div class="text-center mb-16 reveal">
+            <div class="text-center mb-16 reveal">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4">Featured <span class="text-green-400">Projects</span></h2>
                 <p class="text-slate-400 max-w-2xl mx-auto">Showcasing practical applications of physics and computation.</p>
             </div>
@@ -304,11 +304,11 @@
                         <p class="text-green-400 text-sm font-mono mt-1">Computer Vision • Python • 3D Modeling</p>
                     </div>
                 </div>
-                
+
                 <p class="text-slate-400 mb-8 leading-relaxed max-w-4xl">
                     This project demonstrates the application of stereophotogrammetry using <strong>Python algorithms</strong> to create high-fidelity 3D models from standard 2D imagery. By analyzing the parallax differences between the two object views shown below, we can computationally reconstruct spatial depth and surface geometry. This technique is fundamental to my work in remote sensing and was a core component of my thesis on detecting runway hazards.
                 </p>
-                
+
                 <!-- Input Imagery -->
                 <h4 class="text-white font-semibold mb-4 text-lg">Input Stereo Imagery</h4>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -319,7 +319,7 @@
                             <span class="text-white font-medium">Object View 1</span>
                         </div>
                     </div>
-                    
+
                     <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
                         <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
                         <img src="obj2.jpg" alt="Photogrammetry Object View 2" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
@@ -334,7 +334,7 @@
                 <div class="space-y-8">
                     <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
                         <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
-                        <img src="gram_result.png" alt="Stereophotogrammetry Point Cloud Result" class="w-full h-96 md:h-[500px] object-cover">
+                        <img src="gram_result.png" alt="Stereophotogrammetry Point Cloud Result" class="w-full h-auto object-cover">
                         <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
                             <span class="text-white font-medium">Dense Point Cloud Generation</span>
                         </div>
@@ -346,7 +346,7 @@
 
                     <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
                         <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
-                        <img src="gram_contour.png" alt="Contour Map Analysis" class="w-full h-96 md:h-[500px] object-cover">
+                        <img src="gram_contour.png" alt="Contour Map Analysis" class="w-full h-auto object-cover">
                         <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
                             <span class="text-white font-medium">Contour Map Analysis</span>
                         </div>
@@ -362,11 +362,11 @@
                         <p class="text-teal-400 text-sm font-mono mt-1">Meshroom • Python Integration • OBJ Analysis</p>
                     </div>
                 </div>
-                
+
                 <p class="text-slate-400 mb-8 leading-relaxed max-w-4xl">
                     After the initial stereophotogrammetry is performed using Python, I employ Meshroom to further refine the 3D structure. The OBJ file generated from Meshroom is then exported back into Python for advanced structural analysis. This seamless pipeline allows for rigorous data validation and the extraction of precise metric information from the model.
                 </p>
-                
+
                 <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
                     <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
                     <img src="meshroom.png" alt="Meshroom UI Interface" class="w-full h-auto object-cover">
@@ -380,7 +380,7 @@
                 </p>
                 <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
                     <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
-                    <img src="meshroom_result.png" alt="Meshroom Contour Result" class="w-full h-96 md:h-[500px] object-cover">
+                    <img src="meshroom_result.png" alt="Meshroom Contour Result" class="w-full h-auto object-cover">
                     <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
                         <span class="text-white font-medium">Photogrammetry Contour Map</span>
                     </div>
@@ -395,29 +395,28 @@
                         <p class="text-cyan-400 text-sm font-mono mt-1">Timelapse Analysis • Binary Processing • Water Modeling</p>
                     </div>
                 </div>
-                
+
                 <p class="text-slate-400 mb-8 leading-relaxed max-w-4xl">
                     In this experimental phase, the reconstructed surface model is subjected to physical testing. The process involves wetting the surface and capturing a timelapse of the drying process until completely dry. These images are processed into binary maps to isolate water coverage, allowing for the generation of contour maps that represent water height and retention patterns over time.
                 </p>
-                
-                <!-- Process Visualization Header -->
+
+                <!-- Comparison and GIF -->
                 <h4 class="text-white font-semibold mb-4 text-lg">Process Visualization</h4>
-                
-                <!-- Surface Comparison Image (Alone) -->
-                <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20 mb-8">
-                     <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
-                    <img src="surface_comparison.png" alt="Wet Surface vs Binary Comparison" class="w-full h-96 md:h-[500px] object-cover">
-                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
-                        <span class="text-white font-medium">Wet Surface vs. Binary Mask</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
+                        <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
+                        <img src="surface_comparison.png" alt="Wet Surface vs Binary Comparison" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
+                            <span class="text-white font-medium">Wet Surface vs. Binary Mask</span>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Binary GIF (Below) -->
-                <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20 mb-8">
-                     <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
-                    <img src="binary.gif" alt="Drying Process Timelapse" class="w-full h-96 md:h-[500px] object-cover">
-                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
-                        <span class="text-white font-medium">Drying Process (Binary Timelapse)</span>
+
+                    <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
+                        <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
+                        <img src="binary.gif" alt="Drying Process Timelapse" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
+                            <span class="text-white font-medium">Drying Process (Binary Timelapse)</span>
+                        </div>
                     </div>
                 </div>
 
@@ -427,7 +426,7 @@
                     By stacking the binary images captured over time, we calculate the recession of water to estimate relative heights. The result is a water contour map, offering insights into surface drainage and pooling behavior.
                 </p>
                 <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
-                     <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
+                    <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
                     <img src="water_contour.png" alt="Water Contour Map" class="w-full h-auto object-cover">
                     <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
                         <span class="text-white font-medium">Temporal Stack Water Contour Map</span>
@@ -459,7 +458,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Quick Links -->
                 <div>
                     <h4 class="text-white font-semibold mb-4">Navigation</h4>
@@ -483,11 +482,11 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
                 <p>&copy; 2026 Ismail Nur Maghribi. All rights reserved.</p>
                 <div class="flex gap-6">
-                   <span>Hobby: Home Farming (Hydroponic & Catfish)</span>
+                    <span>Hobby: Home Farming (Hydroponic & Catfish)</span>
                 </div>
             </div>
         </div>
