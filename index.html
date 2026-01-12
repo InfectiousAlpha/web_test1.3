@@ -374,6 +374,64 @@
                         <span class="text-white font-medium">Meshroom Processing Environment</span>
                     </div>
                 </div>
+
+                <p class="text-slate-400 mt-8 mb-4 leading-relaxed">
+                    The resulting OBJ file is then processed to generate a detailed contour map, providing a topographic representation of the surface structure derived from the Meshroom pipeline.
+                </p>
+                <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
+                    <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
+                    <img src="meshroom_result.png" alt="Meshroom Contour Result" class="w-full h-auto object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
+                        <span class="text-white font-medium">Photogrammetry Contour Map</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Surface Testing -->
+            <div class="glass-panel p-8 rounded-2xl reveal border-l-4 border-l-cyan-500 mt-12">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-4 mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">Surface Hydraulic Testing</h3>
+                        <p class="text-cyan-400 text-sm font-mono mt-1">Timelapse Analysis • Binary Processing • Water Modeling</p>
+                    </div>
+                </div>
+                
+                <p class="text-slate-400 mb-8 leading-relaxed max-w-4xl">
+                    In this experimental phase, the reconstructed surface model is subjected to physical testing. The process involves wetting the surface and capturing a timelapse of the drying process until completely dry. These images are processed into binary maps to isolate water coverage, allowing for the generation of contour maps that represent water height and retention patterns over time.
+                </p>
+                
+                <!-- Comparison and GIF -->
+                <h4 class="text-white font-semibold mb-4 text-lg">Process Visualization</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
+                         <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
+                        <img src="surface_comparison.png" alt="Wet Surface vs Binary Comparison" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
+                            <span class="text-white font-medium">Wet Surface vs. Binary Mask</span>
+                        </div>
+                    </div>
+                    
+                    <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
+                         <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
+                        <img src="binary.gif" alt="Drying Process Timelapse" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
+                            <span class="text-white font-medium">Drying Process (Binary Timelapse)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Contour -->
+                <h4 class="text-white font-semibold mb-4 text-lg">Water Height Analysis</h4>
+                <p class="text-slate-400 mb-4 leading-relaxed">
+                    By stacking the binary images captured over time, we calculate the recession of water to estimate relative heights. The result is a water contour map, offering insights into surface drainage and pooling behavior.
+                </p>
+                <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
+                     <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
+                    <img src="water_contour.png" alt="Water Contour Map" class="w-full h-auto object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
+                        <span class="text-white font-medium">Temporal Stack Water Contour Map</span>
+                    </div>
+                </div>
             </div>
 
         </div>
