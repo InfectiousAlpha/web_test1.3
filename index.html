@@ -45,7 +45,7 @@
                 <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center shadow-lg shadow-green-500/20">
                     <span class="font-bold text-white text-lg">I</span>
                 </div>
-                <span class="font-bold text-xl tracking-tight text-white">Ismail NM</span>
+                <span class="font-bold text-xl tracking-tight text-white">Ismail Nur Maghribi</span>
             </div>
             
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
@@ -299,7 +299,7 @@
             <div class="glass-panel p-8 rounded-2xl reveal border-l-4 border-l-green-500">
                 <div class="flex flex-col md:flex-row justify-between items-start gap-4 mb-6">
                     <div>
-                        <h3 class="text-2xl font-bold text-white">Photogrammetry Reconstruction</h3>
+                        <h3 class="text-2xl font-bold text-white">Stereophotogrammetry Reconstruction</h3>
                         <p class="text-green-400 text-sm font-mono mt-1">Computer Vision • 3D Modeling</p>
                     </div>
                 </div>
@@ -308,10 +308,10 @@
                     This project demonstrates the application of stereophotogrammetry to create high-fidelity 3D models from standard 2D imagery. By analyzing the parallax differences between the two object views shown below, we can computationally reconstruct spatial depth and surface geometry. This technique is fundamental to my work in remote sensing and was a core component of my thesis on detecting runway hazards.
                 </p>
                 
-                <!-- Image Grid: Horizontal alignment, same size -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Input Imagery -->
+                <h4 class="text-white font-semibold mb-4 text-lg">Input Stereo Imagery</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                     <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
-                        <!-- Loading/Alt styling in case image is missing -->
                         <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
                         <img src="obj1.jpg" alt="Photogrammetry Object View 1" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
@@ -320,11 +320,34 @@
                     </div>
                     
                     <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
-                        <!-- Loading/Alt styling in case image is missing -->
                         <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
                         <img src="obj2.jpg" alt="Photogrammetry Object View 2" class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
                             <span class="text-white font-medium">Object View 2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <h4 class="text-white font-semibold mb-4 text-lg">Reconstruction Results</h4>
+                <div class="space-y-8">
+                    <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
+                        <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
+                        <img src="gram_result.png" alt="Stereophotogrammetry Point Cloud Result" class="w-full h-auto object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
+                            <span class="text-white font-medium">Dense Point Cloud Generation</span>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-400 leading-relaxed">
+                        To better visualize the surface topology and elevation changes, the raw 3D point cloud data was processed further. By interpolating the Z-coordinates (depth) of the generated points, we can project the geometry onto a 2D plane using isolines. The image below displays the converted 3D points as a contour map, effectively highlighting the gradients and surface morphology of the scanned object.
+                    </p>
+
+                    <div class="group relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
+                        <div class="absolute inset-0 flex items-center justify-center text-slate-600 text-sm -z-10">Image not found</div>
+                        <img src="gram_contour.png" alt="Contour Map Analysis" class="w-full h-auto object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900/90 to-transparent">
+                            <span class="text-white font-medium">Contour Map Analysis</span>
                         </div>
                     </div>
                 </div>
@@ -341,7 +364,7 @@
                         <div class="w-8 h-8 rounded-lg bg-green-500 flex items-center justify-center">
                             <span class="font-bold text-white">I</span>
                         </div>
-                        <span class="font-bold text-xl tracking-tight text-white">Ismail NM</span>
+                        <span class="font-bold text-xl tracking-tight text-white">Ismail Nur Maghribi</span>
                     </div>
                     <p class="text-slate-400 max-w-sm mb-4">
                         Passionate about applying physics and programming to solve real-world problems. Let's build something great together.
